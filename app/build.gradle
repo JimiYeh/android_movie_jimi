@@ -82,4 +82,8 @@ dependencies {
     implementation "com.airbnb.android:epoxy:$epoxy_version"
     implementation "com.airbnb.android:epoxy-databinding:${epoxy_version}"
     kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
+
+    // stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 }
