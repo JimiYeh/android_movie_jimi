@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Movie</string>
+
+
+    <string name="category_in_theaters">正在上映</string>
+    <string name="category_coming_soon">即将上映</string>
+    <string name="category_weekly">口碑榜</string>
+    <string name="category_us_box">北美票房榜</string>
+    <string name="category_new_movies">新片榜</string>
+
 </resources>
