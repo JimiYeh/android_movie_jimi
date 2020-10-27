@@ -1,4 +1,4 @@
-package com.example.movie.ui.vo
+package com.example.movie.ui.home.vo
 
 import androidx.annotation.StringRes
 import com.example.movie.R

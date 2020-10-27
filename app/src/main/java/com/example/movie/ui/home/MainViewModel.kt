@@ -1,15 +1,15 @@
-package com.example.movie.ui
+package com.example.movie.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.example.movie.ui.vo.MovieCategory
+import com.example.movie.ui.home.vo.MovieCategory
 
-class MovieListViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
     val categoryList = listOf(
         MovieCategory.CategoryInTheaters,
         MovieCategory.CategoryComingSoon,
         MovieCategory.CategoryWeekly,
         MovieCategory.CategoryUSBox,
-        MovieCategory.CategoryNewMovie
+        MovieCategory.CategoryNewMovie,
     )
 }
