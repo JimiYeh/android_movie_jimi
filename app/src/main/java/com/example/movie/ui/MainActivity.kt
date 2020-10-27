@@ -6,24 +6,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.movie.R
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_movie_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MovieListActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    val viewModel: MovieListViewModel by viewModel()
+    private val viewModel: MovieListViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_list)
 
-        vpMovie.adapter = CategoryPageAdapter(this, viewModel.categoryList.map { it.second })
+        vpMovie.adapter = CategoryPageAdapter(this, viewModel.categoryList.map { it.apiPath })
 
 
         TabLayoutMediator(tlCategory, vpMovie) { tab, position ->
-            tab.text = getString(viewModel.categoryList[position].first)
+            tab.text = getString(viewModel.categoryList[position].strResId)
         }.attach()
     }
 

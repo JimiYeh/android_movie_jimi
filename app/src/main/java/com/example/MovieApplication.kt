@@ -6,13 +6,13 @@ import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class ＭovieApplication : Application() {
+class MovieApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         startKoin {
-            androidContext(this@ＭovieApplication)
+            androidContext(this@MovieApplication)
             modules(listOf(viewModelModule))
         }
 
