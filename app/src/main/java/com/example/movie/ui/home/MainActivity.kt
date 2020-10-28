@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
             MovieCategory.CategoryNewMovie,
         )
 
-        vpMovie.adapter =
+        movieCategoryViewPager.adapter =
             CategoryPageAdapter(
                 this,
                 categoryList)
 
 
-        TabLayoutMediator(tlCategory, vpMovie) { tab, position ->
+        TabLayoutMediator(movieCategoryTabLayout, movieCategoryViewPager) { tab, position ->
             tab.text = getString(categoryList[position].strResId)
         }.attach()
     }

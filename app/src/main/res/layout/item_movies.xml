@@ -25,7 +25,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/ivMovieBanner"
+                android:id="@+id/movieCover"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,10 @@
                 tools:src="@drawable/ic_launcher_foreground"/>
 
             <TextView
-                android:id="@+id/tvMovieName"
+                android:id="@+id/movieName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/ivMovieBanner"
+                app:layout_constraintStart_toEndOf="@id/movieCover"
                 android:layout_marginStart="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -48,36 +48,36 @@
                 tools:text="馴龍高手3" />
 
             <TextView
-                android:id="@+id/tvMovieGenres"
+                android:id="@+id/movieGenres"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/tvMovieName"
+                app:layout_constraintStart_toStartOf="@id/movieName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMovieName"
+                app:layout_constraintTop_toBottomOf="@id/movieName"
                 android:layout_marginTop="4dp"
                 android:textSize="12sp"
                 android:singleLine="true"
                 tools:text="動畫/奇幻/冒險"/>
 
             <TextView
-                android:id="@+id/tvPubDate"
+                android:id="@+id/pubDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/tvMovieName"
+                app:layout_constraintStart_toStartOf="@id/movieName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMovieGenres"
+                app:layout_constraintTop_toBottomOf="@id/movieGenres"
                 android:layout_marginTop="4dp"
                 android:textSize="12sp"
                 android:singleLine="true"
                 tools:text="上映日期：2019-03-01"/>
 
             <TextView
-                android:id="@+id/tvMovieDuration"
+                android:id="@+id/movieDuration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/tvMovieName"
+                app:layout_constraintStart_toStartOf="@id/movieName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPubDate"
+                app:layout_constraintTop_toBottomOf="@id/pubDate"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="8dp"

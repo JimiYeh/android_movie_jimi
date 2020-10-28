@@ -7,7 +7,7 @@
     tools:context=".ui.home.MainActivity">
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/svKeyword"
+        android:id="@+id/movieSearchBar"
         android:layout_width="0dp"
         android:layout_height="52dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,12 +15,12 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tlCategory"
+        android:id="@+id/movieCategoryTabLayout"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svKeyword"
+        app:layout_constraintTop_toBottomOf="@id/movieSearchBar"
         app:tabIndicatorColor="@color/tabIndicator"
         app:tabSelectedTextColor="@color/tabIndicator"
         app:tabIndicatorHeight="2dp"
@@ -29,12 +29,12 @@
 
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpMovie"
+        android:id="@+id/movieCategoryViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tlCategory"
+        app:layout_constraintTop_toBottomOf="@id/movieCategoryTabLayout"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

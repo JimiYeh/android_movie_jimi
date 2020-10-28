@@ -22,22 +22,22 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
             Glide.with(context)
                 .load(movieInfoWrapper.banner)
                 .centerCrop()
-                .into(itemView.ivMovieBanner)
+                .into(itemView.movieCover)
 
 
-            itemView.tvMovieName.text = movieInfoWrapper.name
-            itemView.tvMovieGenres.text = String.format(
-                context.getString(R.string.movie_adapter_genres),
+            itemView.movieName.text = movieInfoWrapper.name
+            itemView.movieGenres.text = String.format(
+                context.getString(R.string.movie_adapter_genres_format),
                 movieInfoWrapper.genres
             )
 
-            itemView.tvPubDate.text = String.format(
-                context.getString(R.string.movie_adapter_pub_date),
+            itemView.pubDate.text = String.format(
+                context.getString(R.string.movie_adapter_pub_date_format),
                 movieInfoWrapper.pubDate
             )
 
-            itemView.tvMovieDuration.text = String.format(
-                context.getString(R.string.movie_adapter_duration),
+            itemView.movieDuration.text = String.format(
+                context.getString(R.string.movie_adapter_duration_format),
                 movieInfoWrapper.duration
             )
         }
