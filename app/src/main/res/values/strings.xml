@@ -8,4 +8,8 @@
     <string name="category_us_box">北美票房榜</string>
     <string name="category_new_movies">新片榜</string>
 
+    <string name="movie_adapter_genres">類型： %s</string>
+    <string name="movie_adapter_pub_date">上映日期： %s</string>
+    <string name="movie_adapter_duration">片長： %s</string>
+
 </resources>

@@ -1,10 +1,23 @@
 package com.example.movie.service
 
+import com.example.movie.model.response.*
+import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface MovieService {
 
-    @GET("/v2/movie/{category}")
-    suspend fun getCategoryMovies(@Path("category") category: String)
+    @GET("/v2/movie/new_movies")
+    suspend fun getNewMovies(): Response<NewMoviesResp>
+
+    @GET("/v2/movie/in_theaters")
+    suspend fun getInTheatersMovies(): Response<InTheatersMoviesResp>
+
+    @GET("/v2/movie/coming_soon")
+    suspend fun getComingSoonMovies(): Response<ComingSoonMoviesResp>
+
+    @GET("/v2/movie/weekly")
+    suspend fun getWeeklyMovies(): Response<WeeklyMoviesResp>
+
+    @GET("/v2/movie/us_box")
+    suspend fun getUSBoxMovies(): Response<USBoxMoviesResp>
 }
