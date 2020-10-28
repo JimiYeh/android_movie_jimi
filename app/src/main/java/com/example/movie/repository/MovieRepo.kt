@@ -20,12 +20,10 @@ class MovieRepo(val service: MovieService) {
     private suspend fun getInTheatersMovies(): ApiResponse<List<Subject>> {
         return when(val resp = callApi { service.getInTheatersMovies() }) {
             is ApiResponse.Success<InTheatersMoviesResp> -> {
-                val list = mutableListOf<Subject>()
+                val list =
                 resp.data?.inTheatersSubjects?.map {
                     it.subject
-                }?.forEach {
-                    list.add(it)
-                }
+                } ?: listOf()
                 ApiResponse.Success(list)
             }
             is ApiResponse.Error -> resp
@@ -36,10 +34,7 @@ class MovieRepo(val service: MovieService) {
     private suspend fun getNewMovies(): ApiResponse<List<Subject>> {
         return when(val resp = callApi { service.getNewMovies() }) {
             is ApiResponse.Success<NewMoviesResp> -> {
-                val list = mutableListOf<Subject>()
-                resp.data?.subjects?.let {
-                    list.addAll(it)
-                }
+                val list = resp.data?.subjects ?: listOf()
                 ApiResponse.Success(list)
             }
             is ApiResponse.Error -> resp
@@ -50,12 +45,10 @@ class MovieRepo(val service: MovieService) {
     private suspend fun getComingSoonMovies(): ApiResponse<List<Subject>> {
         return when(val resp = callApi { service.getComingSoonMovies() }) {
             is ApiResponse.Success<ComingSoonMoviesResp> -> {
-                val list = mutableListOf<Subject>()
+                val list =
                 resp.data?.comingSoonSubjects?.map {
                     it.subject
-                }?.forEach {
-                    list.add(it)
-                }
+                } ?: listOf()
                 ApiResponse.Success(list)
             }
             is ApiResponse.Error -> resp
@@ -66,12 +59,10 @@ class MovieRepo(val service: MovieService) {
     private suspend fun getWeeklyMovies(): ApiResponse<List<Subject>> {
         return when(val resp = callApi { service.getWeeklyMovies() }) {
             is ApiResponse.Success<WeeklyMoviesResp> -> {
-                val list = mutableListOf<Subject>()
+                val list =
                 resp.data?.weeklySubjects?.map {
                     it.subject
-                }?.forEach {
-                    list.add(it)
-                }
+                } ?: listOf()
                 ApiResponse.Success(list)
             }
             is ApiResponse.Error -> resp
@@ -82,12 +73,10 @@ class MovieRepo(val service: MovieService) {
     private suspend fun getUSBoxMovies(): ApiResponse<List<Subject>> {
         return when(val resp = callApi { service.getUSBoxMovies() }) {
             is ApiResponse.Success<USBoxMoviesResp> -> {
-                val list = mutableListOf<Subject>()
+                val list =
                 resp.data?.subjects?.map {
                     it.subject
-                }?.forEach {
-                    list.add(it)
-                }
+                } ?: listOf()
                 ApiResponse.Success(list)
             }
             is ApiResponse.Error -> resp

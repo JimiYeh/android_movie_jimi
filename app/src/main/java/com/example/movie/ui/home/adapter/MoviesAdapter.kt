@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.R
-import com.example.movie.model.response.NewMoviesResp
 import com.example.movie.model.response.Subject
-import kotlinx.android.synthetic.main.adapter_movies.view.*
+import kotlinx.android.synthetic.main.item_movies.view.*
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
@@ -46,7 +45,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.adapter_movies, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_movies, parent, false)
         return ViewHolder(view)
     }
 
@@ -75,7 +74,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
         constructor(subject: Subject) : this(
             subject.images.small,
             subject.title,
-            if (subject.genres.isNotEmpty()) subject.genres.reduce { result, element -> "$result/$element" } else "",
+            subject.genres.joinToString(separator = "/"),
             subject.mainlandPubdate,
             if (subject.durations.isNotEmpty()) subject.durations[0] else ""
         )
