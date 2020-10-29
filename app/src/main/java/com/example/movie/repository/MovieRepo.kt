@@ -21,7 +21,7 @@ class MovieRepo(val service: MovieService) {
         return when(val resp = callApi { service.getInTheatersMovies() }) {
             is ApiResponse.Success<InTheatersMoviesResp> -> {
                 val list =
-                resp.data?.inTheatersSubjects?.map {
+                resp.data?.subjects?.map {
                     it.subject
                 } ?: listOf()
                 ApiResponse.Success(list)
@@ -46,7 +46,7 @@ class MovieRepo(val service: MovieService) {
         return when(val resp = callApi { service.getComingSoonMovies() }) {
             is ApiResponse.Success<ComingSoonMoviesResp> -> {
                 val list =
-                resp.data?.comingSoonSubjects?.map {
+                resp.data?.subjects?.map {
                     it.subject
                 } ?: listOf()
                 ApiResponse.Success(list)

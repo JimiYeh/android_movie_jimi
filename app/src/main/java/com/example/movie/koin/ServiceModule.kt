@@ -34,9 +34,7 @@ inline fun <reified T> createService(okHttpClient: OkHttpClient): T {
     val retrofit = Retrofit.Builder()
         .baseUrl(SERVER_URL)
         .client(okHttpClient)
-//        .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(MoshiConverterFactory.create())
-//            .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     return retrofit.create(T::class.java)
