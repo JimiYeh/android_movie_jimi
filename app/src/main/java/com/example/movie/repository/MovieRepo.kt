@@ -60,7 +60,7 @@ class MovieRepo(val service: MovieService) {
         return when(val resp = callApi { service.getWeeklyMovies() }) {
             is ApiResponse.Success<WeeklyMoviesResp> -> {
                 val list =
-                resp.data?.weeklySubjects?.map {
+                resp.data?.subjects?.map {
                     it.subject
                 } ?: listOf()
                 ApiResponse.Success(list)
