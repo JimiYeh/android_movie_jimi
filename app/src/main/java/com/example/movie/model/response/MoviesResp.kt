@@ -29,14 +29,14 @@ data class Subject(
         val id: String? = null,
         val name: String = "",
         val nameEn: String = ""
-    ) {
-        @JsonClass(generateAdapter = true)
-        data class Avatars(
-            val large: String = "",
-            val medium: String = "",
-            val small: String = ""
-        )
-    }
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class Avatars(
+        val large: String = "",
+        val medium: String = "",
+        val small: String = ""
+    )
 
     @JsonClass(generateAdapter = true)
     data class Director(
@@ -45,14 +45,7 @@ data class Subject(
         val id: String? = null,
         val name: String = "",
         val nameEn: String = ""
-    ) {
-        @JsonClass(generateAdapter = true)
-        data class Avatars(
-            val large: String = "",
-            val medium: String = "",
-            val small: String = ""
-        )
-    }
+    )
 
     @JsonClass(generateAdapter = true)
     data class Images(
