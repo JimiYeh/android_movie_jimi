@@ -12,4 +12,18 @@
     <string name="movie_adapter_pub_date_format">上映日期： %s</string>
     <string name="movie_adapter_duration_format">片長： %s</string>
 
+
+<!--    detail page-->
+    <string name="movie_detail_director_format">導演： %s</string>
+    <string name="movie_detail_actor_format">演員： %s</string>
+    <string name="movie_detail_pub_year_format">上映日期： %s</string>
+    <string name="movie_detail_genres_format">類型： %s</string>
+    <string name="movie_detail_country_format">製片國家/地區： %s</string>
+    <string name="movie_detail_score_format">評分： %s</string>
+    <string name="movie_detail_label_guide">劇情簡介</string>
+    <string name="movie_detail_label_actor">演職員</string>
+    <string name="movie_detail_label_comment">熱評</string>
+    <string name="movie_detail_comment_likes_format">%d 有用</string>
+    <string name="test_guide">劇情描述27歲上班族黃雨萱，因對前男友的思念，意外靈魂穿越回到1998年台南，變成17歲的女高中生陳韻如，卻遇見和前男友長得一模一樣的李子維，以及始終暗戀著陳韻如的暖男莫俊傑，展開一連串浪漫虐心又懸疑難解的故事。</string>
+
 </resources>

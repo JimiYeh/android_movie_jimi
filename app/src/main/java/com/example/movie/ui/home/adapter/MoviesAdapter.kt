@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.R
 import com.example.movie.model.response.Subject
+import com.example.movie.ui.detail.MovieDetailActivity
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     private val movies = mutableListOf<MovieInfoWrapper>()
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movieInfoWrapper: MovieInfoWrapper) {
 
             val context = itemView.context
-
 
             Glide.with(context)
                 .load(movieInfoWrapper.banner)
@@ -40,6 +40,10 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
                 context.getString(R.string.movie_adapter_duration_format),
                 movieInfoWrapper.duration
             )
+
+            itemView.setOnClickListener {
+                context.startActivity(MovieDetailActivity.newIntent(context, movies[adapterPosition].subject))
+            }
         }
     }
 
@@ -69,14 +73,16 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
         val name: String,
         val genres: String,
         val pubDate: String,
-        val duration: String
+        val duration: String,
+        val subject: Subject
     ) {
         constructor(subject: Subject) : this(
             subject.images.small,
             subject.title,
             subject.genres.joinToString(separator = "/"),
             subject.mainlandPubdate,
-            if (subject.durations.isNotEmpty()) subject.durations[0] else ""
+            if (subject.durations.isNotEmpty()) subject.durations[0] else "",
+            subject
         )
     }
 }

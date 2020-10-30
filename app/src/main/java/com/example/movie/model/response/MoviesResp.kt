@@ -1,6 +1,7 @@
 package com.example.movie.model.response
 
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 
 @JsonClass(generateAdapter = true)
@@ -21,7 +22,7 @@ data class Subject(
     val subtype: String = "",
     val title: String = "",
     val year: String = ""
-) {
+): Serializable {
     @JsonClass(generateAdapter = true)
     data class Cast(
         val alt: String? = null,
@@ -29,14 +30,14 @@ data class Subject(
         val id: String? = null,
         val name: String = "",
         val nameEn: String = ""
-    )
+    ): Serializable
 
     @JsonClass(generateAdapter = true)
     data class Avatars(
         val large: String = "",
         val medium: String = "",
         val small: String = ""
-    )
+    ): Serializable
 
     @JsonClass(generateAdapter = true)
     data class Director(
@@ -45,14 +46,14 @@ data class Subject(
         val id: String? = null,
         val name: String = "",
         val nameEn: String = ""
-    )
+    ): Serializable
 
     @JsonClass(generateAdapter = true)
     data class Images(
         val large: String = "",
         val medium: String = "",
         val small: String = ""
-    )
+    ): Serializable
 
     @JsonClass(generateAdapter = true)
     data class Rating(
@@ -61,7 +62,7 @@ data class Subject(
         val max: Int = 0,
         val min: Int = 0,
         val stars: String = ""
-    ) {
+    ): Serializable {
         @JsonClass(generateAdapter = true)
         data class Details(
             val x1: Double = 0.0,
@@ -69,7 +70,7 @@ data class Subject(
             val x3: Double = 0.0,
             val x4: Double = 0.0,
             val x5: Double = 0.0
-        )
+        ): Serializable
     }
 }
 

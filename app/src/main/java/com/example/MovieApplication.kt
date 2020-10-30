@@ -1,6 +1,7 @@
 package com.example
 
 import android.app.Application
+import com.airbnb.epoxy.Carousel
 import com.example.movie.koin.repositoryModule
 import com.example.movie.koin.serviceModule
 import com.example.movie.koin.viewModelModule
@@ -10,8 +11,16 @@ import org.koin.core.context.startKoin
 
 class MovieApplication : Application() {
 
+
+    companion object {
+        var instance: MovieApplication? = null
+    }
+
+
     override fun onCreate() {
         super.onCreate()
+
+        instance = this
 
         startKoin {
             androidContext(this@MovieApplication)
@@ -19,5 +28,7 @@ class MovieApplication : Application() {
         }
 
         Stetho.initializeWithDefaults(this)
+
+        Carousel.setDefaultGlobalSnapHelperFactory(null)
     }
 }
