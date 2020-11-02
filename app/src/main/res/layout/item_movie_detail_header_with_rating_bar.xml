@@ -96,32 +96,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include layout="@layout/item_movie_rating_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topContainer">
-
-        <include layout="@layout/item_movie_detail_label"
-            android:id="@+id/ratingLabelContainer"/>
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ratingLabelContainer"
-            android:numStars="5"
-            android:stepSize="0.1"
-            android:foregroundTint="@color/tabIndicator"
-            android:backgroundTint="@color/tabIndicator"
-            android:progressTint="@color/tabIndicator"
-            android:indeterminateTint="@color/tabIndicator"
-            tools:rating="2.2"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/topContainer"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

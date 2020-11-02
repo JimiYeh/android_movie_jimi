@@ -14,12 +14,12 @@ import com.example.movie.model.response.Subject
 import com.example.movie.util.toDecimalFormat
 
 @EpoxyModelClass
-abstract class MovieDetailHeaderModel : EpoxyModelWithHolder<MovieDetailHeaderModel.Holder>() {
+abstract class MovieDetailHeaderWithRatingBarModel : EpoxyModelWithHolder<MovieDetailHeaderWithRatingBarModel.Holder>() {
 
     @EpoxyAttribute
     lateinit var info: Info
 
-    override fun getDefaultLayout(): Int = R.layout.item_movie_detail_header
+    override fun getDefaultLayout(): Int = R.layout.item_movie_detail_header_with_rating_bar
 
     override fun bind(holder: Holder) {
         super.bind(holder)

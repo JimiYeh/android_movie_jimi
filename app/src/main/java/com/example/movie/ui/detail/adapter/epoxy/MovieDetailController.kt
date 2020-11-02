@@ -1,6 +1,5 @@
 package com.example.movie.ui.detail.adapter.epoxy
 
-import android.content.Context
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
@@ -14,9 +13,14 @@ class MovieDetailController : TypedEpoxyController<Subject>() {
 
         data?.let { subject ->
 
-            movieDetailHeader {
+            movieDetailHeaderWithRatingBar {
                 id("header")
-                info(MovieDetailHeaderModel.Info(subject))
+                info(MovieDetailHeaderWithRatingBarModel.Info(subject))
+            }
+
+            movieDetailLabel {
+                id("label_guide")
+                resIdLabel(R.string.movie_detail_label_guide)
             }
 
             movieGuide {
