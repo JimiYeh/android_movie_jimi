@@ -23,7 +23,7 @@ abstract class MovieCommentModel : EpoxyModelWithHolder<MovieCommentModel.Holder
     lateinit var commentDate: String
 
     @EpoxyAttribute
-    lateinit var likesCount: String
+    var likesCount: Int = 0
 
     @EpoxyAttribute
     lateinit var comment: String
@@ -42,7 +42,7 @@ abstract class MovieCommentModel : EpoxyModelWithHolder<MovieCommentModel.Holder
 
         holder.name.text = name
         holder.date.text = commentDate
-        holder.likes.text = likesCount
+        holder.likes.text = String.format(holder.likes.context.getString(R.string.movie_detail_comment_likes_format), likesCount)
         holder.comment.text = comment
     }
 

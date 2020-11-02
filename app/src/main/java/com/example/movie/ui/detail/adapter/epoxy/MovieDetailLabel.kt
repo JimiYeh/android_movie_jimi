@@ -12,13 +12,14 @@ import com.example.movie.R
 abstract class MovieDetailLabel : EpoxyModelWithHolder<MovieDetailLabel.Holder>() {
 
     @EpoxyAttribute
-    lateinit var label: String
+    var resIdLabel: Int = -1
 
     override fun getDefaultLayout(): Int = R.layout.item_movie_detail_label
 
     override fun bind(holder: Holder) {
         super.bind(holder)
-        holder.label.text = label
+        if (resIdLabel != -1)
+            holder.label.setText(resIdLabel)
     }
 
     class Holder : EpoxyHolder() {
