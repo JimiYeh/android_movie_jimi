@@ -3,6 +3,7 @@ package com.example.movie.ui.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movie.R
 import com.example.movie.model.response.Subject
@@ -28,11 +29,28 @@ class MovieDetailActivity : AppCompatActivity() {
 
         val subject = intent.getSerializableExtra(BUNDLE_SUBJECT) as? Subject ?: throw RuntimeException("null subject !")
 
+        supportActionBar?.apply {
+            title = subject.title
+            setDisplayHomeAsUpEnabled(true)
+            setHomeButtonEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
+
         val controller = MovieDetailController()
         container.setController(controller)
         controller.setData(subject)
     }
 
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else ->
+                super.onOptionsItemSelected(item)
+        }
+    }
 }
