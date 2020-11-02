@@ -11,16 +11,8 @@ import org.koin.core.context.startKoin
 
 class MovieApplication : Application() {
 
-
-    companion object {
-        var instance: MovieApplication? = null
-    }
-
-
     override fun onCreate() {
         super.onCreate()
-
-        instance = this
 
         startKoin {
             androidContext(this@MovieApplication)

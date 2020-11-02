@@ -28,7 +28,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
         val subject = intent.getSerializableExtra(BUNDLE_SUBJECT) as? Subject ?: throw RuntimeException("null subject !")
 
-        val controller = MovieDetailController()
+        val controller = MovieDetailController(this)
         container.setController(controller)
         controller.setData(subject)
     }

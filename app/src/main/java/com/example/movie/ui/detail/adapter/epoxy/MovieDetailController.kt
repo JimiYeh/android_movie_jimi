@@ -1,18 +1,16 @@
 package com.example.movie.ui.detail.adapter.epoxy
 
+import android.content.Context
 import com.airbnb.epoxy.Carousel
 import com.airbnb.epoxy.TypedEpoxyController
 import com.airbnb.epoxy.carousel
-import com.example.MovieApplication
 import com.example.movie.R
 import com.example.movie.model.response.Subject
 import com.example.movie.util.toFormat
 import java.util.*
 
-class MovieDetailController : TypedEpoxyController<Subject>() {
+class MovieDetailController(private val context: Context) : TypedEpoxyController<Subject>() {
     override fun buildModels(data: Subject?) {
-
-        val context = MovieApplication.instance!!.applicationContext
 
         data?.let { subject ->
 

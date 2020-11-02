@@ -14,7 +14,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     private val movies = mutableListOf<MovieInfoWrapper>()
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movieInfoWrapper: MovieInfoWrapper) {
 
             val context = itemView.context
@@ -42,7 +42,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
             )
 
             itemView.setOnClickListener {
-                context.startActivity(MovieDetailActivity.newIntent(context, movies[adapterPosition].subject))
+                context.startActivity(MovieDetailActivity.newIntent(context, movieInfoWrapper.subject))
             }
         }
     }
