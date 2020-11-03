@@ -66,10 +66,16 @@ class MovieRepo(val service: MovieService) {
 
                     val resp = response.body() ?: return LoadResult.Error(RuntimeException("null movie list response"))
 
-                    return LoadResult.Page(
-                        data = resp.results,
+                    resp.totalPages?.let {
+                        return LoadResult.Page(
+                            data = resp.results ?: listOf(),
+                            prevKey = null,
+                            nextKey = if (pageNumber == resp.totalPages) null else pageNumber + 1
+                        )
+                    } ?: return LoadResult.Page(
+                        data = resp.results ?: listOf(),
                         prevKey = null,
-                        nextKey = pageNumber + 1
+                        nextKey = null
                     )
                 } else {
                     return LoadResult.Error(RuntimeException("api fail"))

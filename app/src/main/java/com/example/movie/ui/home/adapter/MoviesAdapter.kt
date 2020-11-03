@@ -87,11 +87,11 @@ class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper>) : Pag
         val duration: String,
     ) {
         constructor(movie: MoviesResp.Movie) : this(
-            movie.id,
-            movie.posterPath,
-            movie.title,
+            movie.id!!,
+            movie.posterPath ?: "",
+            movie.title ?: "",
             "",
-            movie.releaseDate,
+            movie.releaseDate ?: "",
             "",
         )
     }

@@ -3,10 +3,7 @@ package com.example.movie.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import androidx.paging.map
+import androidx.paging.*
 import com.example.movie.repository.MovieRepo
 import com.example.movie.ui.home.adapter.MoviesAdapter
 import com.example.movie.ui.home.vo.MovieCategory
@@ -26,7 +23,8 @@ class CategoryViewModel(private val category: MovieCategory, private val movieRe
         movieRepo.getCategoryMovies(category)
     }.flow
         .map { pagingData ->
-            pagingData.map {
+            pagingData.filter { movie -> movie.id != null }
+                .map {
                 MoviesAdapter.MovieInfoWrapper(it)
             }
         }.cachedIn(viewModelScope)
