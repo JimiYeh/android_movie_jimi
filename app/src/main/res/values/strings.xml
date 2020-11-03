@@ -2,11 +2,10 @@
     <string name="app_name">Movie</string>
 
 
-    <string name="category_in_theaters">正在上映</string>
-    <string name="category_coming_soon">即将上映</string>
-    <string name="category_weekly">口碑榜</string>
-    <string name="category_us_box">北美票房榜</string>
-    <string name="category_new_movies">新片榜</string>
+    <string name="category_now_playing">正在上映</string>
+    <string name="category_upcoming">即将上映</string>
+    <string name="category_top_rated">排行榜</string>
+    <string name="category_popular">好評</string>
 
     <string name="movie_adapter_genres_format">類型： %s</string>
     <string name="movie_adapter_pub_date_format">上映日期： %s</string>

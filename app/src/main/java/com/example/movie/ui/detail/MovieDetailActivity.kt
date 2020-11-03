@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movie.R
-import com.example.movie.model.response.Subject
-import com.example.movie.ui.detail.adapter.epoxy.MovieDetailController
-import kotlinx.android.synthetic.main.activity_movie_detail.*
-import java.lang.RuntimeException
+
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -17,8 +14,8 @@ class MovieDetailActivity : AppCompatActivity() {
 
         private const val BUNDLE_SUBJECT = "BUNDLE_SUBJECT"
 
-        fun newIntent(context: Context, subject: Subject) = Intent(context, MovieDetailActivity::class.java).apply {
-            putExtra(BUNDLE_SUBJECT, subject)
+        fun newIntent(context: Context) = Intent(context, MovieDetailActivity::class.java).apply {
+//            putExtra(BUNDLE_SUBJECT, subject)
         }
     }
 
@@ -27,19 +24,19 @@ class MovieDetailActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_movie_detail)
 
-        val subject = intent.getSerializableExtra(BUNDLE_SUBJECT) as? Subject ?: throw RuntimeException("null subject !")
-
-        supportActionBar?.apply {
-            title = subject.title
-            setDisplayHomeAsUpEnabled(true)
-            setHomeButtonEnabled(true)
-            setDisplayShowHomeEnabled(true)
-        }
-
-
-        val controller = MovieDetailController()
-        container.setController(controller)
-        controller.setData(subject)
+//        val subject = intent.getSerializableExtra(BUNDLE_SUBJECT) as? Subject ?: throw RuntimeException("null subject !")
+//
+//        supportActionBar?.apply {
+//            title = subject.title
+//            setDisplayHomeAsUpEnabled(true)
+//            setHomeButtonEnabled(true)
+//            setDisplayShowHomeEnabled(true)
+//        }
+//
+//
+//        val controller = MovieDetailController()
+//        container.setController(controller)
+//        controller.setData(subject)
     }
 
 

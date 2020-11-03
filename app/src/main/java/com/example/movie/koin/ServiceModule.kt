@@ -20,7 +20,6 @@ fun createOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
     .addInterceptor {
         val url = it.request().url
             .newBuilder()
-            .addQueryParameter("apikey", "0b2bdeda43b5688921839c8ecb20399b")
             .build()
 
         val request = it.request().newBuilder().url(url).build()

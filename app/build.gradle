@@ -21,10 +21,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", "\"http://api.douban.com\""
+            buildConfigField "String", "SERVER_URL", "\"https://api.themoviedb.org\""
+            buildConfigField "String", "API_KEY", "\"3721c84c2331e52269c5fde7383d6a57\""
+            buildConfigField "String", "LANGUAGE", "\"zn-TW\""
         }
         debug {
-            buildConfigField "String", "SERVER_URL", "\"http://api.douban.com\""
+            buildConfigField "String", "SERVER_URL", "\"https://api.themoviedb.org\""
+            buildConfigField "String", "API_KEY", "\"3721c84c2331e52269c5fde7383d6a57\""
+            buildConfigField "String", "LANGUAGE", "\"zn-TW\""
         }
     }
 
@@ -102,4 +106,8 @@ dependencies {
     // stetho
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+
+    def paging_version = "3.0.0-alpha07"
+    implementation "androidx.paging:paging-runtime:$paging_version"
 }

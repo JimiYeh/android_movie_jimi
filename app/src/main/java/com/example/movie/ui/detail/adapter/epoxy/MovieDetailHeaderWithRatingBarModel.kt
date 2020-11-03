@@ -10,7 +10,6 @@ import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.bumptech.glide.Glide
 import com.example.movie.R
-import com.example.movie.model.response.Subject
 import com.example.movie.util.toDecimalFormat
 
 @EpoxyModelClass
@@ -73,14 +72,5 @@ abstract class MovieDetailHeaderWithRatingBarModel : EpoxyModelWithHolder<MovieD
         val pubYear: String,
         val country: String = "",
         val score: Double,
-    ) {
-        constructor(subject: Subject): this(
-            cover = subject.images.small,
-            director = if (subject.directors.isNotEmpty()) subject.directors[0].name else "",
-            actor = subject.casts.joinToString(separator = "/") { it.name },
-            genres = subject.genres.joinToString(separator = "/"),
-            pubYear = subject.year,
-            score = subject.rating.average
-        )
-    }
+    )
 }

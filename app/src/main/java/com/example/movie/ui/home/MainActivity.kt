@@ -20,11 +20,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val categoryList = listOf(
-            MovieCategory.CategoryInTheaters,
-            MovieCategory.CategoryComingSoon,
-            MovieCategory.CategoryWeekly,
-            MovieCategory.CategoryUSBox,
-            MovieCategory.CategoryNewMovie,
+//            MovieCategory.CategoryNowPlaying,
+            MovieCategory.CategoryUpcoming,
+//            MovieCategory.CategoryTopRated,
+//            MovieCategory.CategoryPopular,
         )
 
         movieCategoryViewPager.adapter =

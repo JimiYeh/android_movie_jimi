@@ -1,23 +1,40 @@
 package com.example.movie.service
 
-import com.example.movie.model.response.*
+import com.example.movie.BuildConfig
+import com.example.movie.model.response.MoviesResp
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface MovieService {
 
-    @GET("/v2/movie/new_movies")
-    suspend fun getNewMovies(): Response<NewMoviesResp>
+    @GET("/3/movie/now_playing")
+    suspend fun getNowPlayingMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("language") language: String = BuildConfig.LANGUAGE,
+        @Query("page") page: Int = 1
+    ): Response<MoviesResp>
 
-    @GET("/v2/movie/in_theaters")
-    suspend fun getInTheatersMovies(): Response<InTheatersMoviesResp>
+    @GET("/3/movie/popular")
+    suspend fun getPopularMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("language") language: String = BuildConfig.LANGUAGE,
+        @Query("page") page: Int = 1
+    ): Response<MoviesResp>
 
-    @GET("/v2/movie/coming_soon")
-    suspend fun getComingSoonMovies(): Response<ComingSoonMoviesResp>
+    @GET("/3/movie/top_rated")
+    suspend fun getTopRatedMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("language") language: String = BuildConfig.LANGUAGE,
+        @Query("page") page: Int = 1
+    ): Response<MoviesResp>
 
-    @GET("/v2/movie/weekly")
-    suspend fun getWeeklyMovies(): Response<WeeklyMoviesResp>
+    @GET("/3/movie/upcoming")
+    suspend fun getUpcomingMovies(
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("language") language: String = BuildConfig.LANGUAGE,
+        @Query("page") page: Int = 1
+    ): Response<MoviesResp>
 
-    @GET("/v2/movie/us_box")
-    suspend fun getUSBoxMovies(): Response<USBoxMoviesResp>
+
 }

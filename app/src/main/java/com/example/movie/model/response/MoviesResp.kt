@@ -1,138 +1,48 @@
 package com.example.movie.model.response
 
+
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import java.io.Serializable
-
 
 @JsonClass(generateAdapter = true)
-data class Subject(
-    val alt: String = "",
-    val casts: List<Cast> = listOf(),
-    val collectCount: Int = 0,
-    val directors: List<Director> = listOf(),
-    val durations: List<String> = listOf(),
-    val genres: List<String> = listOf(),
-    val hasVideo: Boolean = false,
-    val id: String = "",
-    val images: Images = Images(),
-    val mainlandPubdate: String = "",
-    val originalTitle: String = "",
-    val pubdates: List<String> = listOf(),
-    val rating: Rating = Rating(),
-    val subtype: String = "",
-    val title: String = "",
-    val year: String = ""
-): Serializable {
-    @JsonClass(generateAdapter = true)
-    data class Cast(
-        val alt: String? = null,
-        val avatars: Avatars? = null,
-        val id: String? = null,
-        val name: String = "",
-        val nameEn: String = ""
-    ): Serializable
-
-    @JsonClass(generateAdapter = true)
-    data class Avatars(
-        val large: String = "",
-        val medium: String = "",
-        val small: String = ""
-    ): Serializable
-
-    @JsonClass(generateAdapter = true)
-    data class Director(
-        val alt: String? = null,
-        val avatars: Avatars? = null,
-        val id: String? = null,
-        val name: String = "",
-        val nameEn: String = ""
-    ): Serializable
-
-    @JsonClass(generateAdapter = true)
-    data class Images(
-        val large: String = "",
-        val medium: String = "",
-        val small: String = ""
-    ): Serializable
-
-    @JsonClass(generateAdapter = true)
-    data class Rating(
-        val average: Double = 0.0,
-        val details: Details = Details(),
-        val max: Int = 0,
-        val min: Int = 0,
-        val stars: String = ""
-    ): Serializable {
-        @JsonClass(generateAdapter = true)
-        data class Details(
-            val x1: Double = 0.0,
-            val x2: Double = 0.0,
-            val x3: Double = 0.0,
-            val x4: Double = 0.0,
-            val x5: Double = 0.0
-        ): Serializable
-    }
-}
-
-
-@JsonClass(generateAdapter = true)
-data class NewMoviesResp(
-    val subjects: List<Subject> = listOf(),
-    val title: String = ""
-)
-
-@JsonClass(generateAdapter = true)
-data class WeeklyMoviesResp(
-    val subjects: List<WeeklySubject>,
-    val title: String = ""
+data class MoviesResp(
+    val dates: Dates = Dates(),
+    val page: Int = 0,
+    val results: List<Movie> = listOf(),
+    @Json(name = "total_pages")
+    val totalPages: Int = 0,
+    @Json(name = "total_results")
+    val totalResults: Int = 0
 ) {
     @JsonClass(generateAdapter = true)
-    data class WeeklySubject(
-        val delta: Int = 0,
-        val rank: Int = 0,
-        val subject: Subject = Subject()
+    data class Dates(
+        val maximum: String = "",
+        val minimum: String = ""
     )
-}
 
-
-@JsonClass(generateAdapter = true)
-data class USBoxMoviesResp(
-    val date: String = "",
-    val subjects: List<USBoxSubject> = listOf(),
-    val title: String = ""
-) {
     @JsonClass(generateAdapter = true)
-    data class USBoxSubject(
-        val box: Int = 0,
-        val new: Boolean = false,
-        val rank: Int = 0,
-        val subject: Subject = Subject()
+    data class Movie(
+        val adult: Boolean = false,
+        @Json(name = "backdrop_path")
+        val backdropPath: String = "",
+        @Json(name = "genre_ids")
+        val genreIds: List<Int> = listOf(),
+        val id: Int = 0,
+        @Json(name = "original_language")
+        val originalLanguage: String = "",
+        @Json(name = "original_title")
+        val originalTitle: String = "",
+        val overview: String = "",
+        val popularity: Double = 0.0,
+        @Json(name = "poster_path")
+        val posterPath: String = "",
+        @Json(name = "release_date")
+        val releaseDate: String = "",
+        val title: String = "",
+        val video: Boolean = false,
+        @Json(name = "vote_average")
+        val voteAverage: Double = 0.0,
+        @Json(name = "vote_count")
+        val voteCount: Int = 0
     )
 }
-
-@JsonClass(generateAdapter = true)
-data class ComingSoonMoviesResp(
-    val start: Int = 0,
-    val count: Int = 0,
-    val subjects: List<ComingSoonSubject> = listOf(),
-    val title: String = ""
-) {
-    @JsonClass(generateAdapter = true)
-    data class ComingSoonSubject(
-        val subject: Subject = Subject()
-    )
-}
-
-@JsonClass(generateAdapter = true)
-data class InTheatersMoviesResp(
-    val start: Int = 0,
-    val count: Int = 0,
-    val subjects: List<InTheatersSubject> = listOf(),
-    val title: String = ""
-) {
-    @JsonClass(generateAdapter = true)
-    data class InTheatersSubject(
-        val subject: Subject = Subject()
-    )
-}
-
