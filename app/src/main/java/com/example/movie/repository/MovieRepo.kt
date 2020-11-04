@@ -19,34 +19,30 @@ class MovieRepo(val service: MovieService) {
         }
     }
 
-    private fun getMovieApiByCategory(category: MovieCategory): suspend (String, String, Int) -> Response<MoviesResp> {
+    private fun getMovieApiByCategory(category: MovieCategory): suspend (String, Int) -> Response<MoviesResp> {
 
         return when (category) {
 
-            MovieCategory.CategoryNowPlaying -> { apiKey, language, pageNumber ->
+            MovieCategory.CategoryNowPlaying -> { language, pageNumber ->
                 service.getNowPlayingMovies(
-                    apiKey,
                     language,
                     pageNumber
                 )
             }
-            MovieCategory.CategoryUpcoming -> { apiKey, language, pageNumber ->
+            MovieCategory.CategoryUpcoming -> { language, pageNumber ->
                 service.getUpcomingMovies(
-                    apiKey,
                     language,
                     pageNumber
                 )
             }
-            MovieCategory.CategoryTopRated -> { apiKey, language, pageNumber ->
+            MovieCategory.CategoryTopRated -> { language, pageNumber ->
                 service.getNowPlayingMovies(
-                    apiKey,
                     language,
                     pageNumber
                 )
             }
-            MovieCategory.CategoryPopular -> { apiKey, language, pageNumber ->
+            MovieCategory.CategoryPopular -> { language, pageNumber ->
                 service.getPopularMovies(
-                    apiKey,
                     language,
                     pageNumber
                 )
@@ -55,13 +51,13 @@ class MovieRepo(val service: MovieService) {
     }
 
 
-    class MoviePagingSource(val func: suspend (String, String, Int) -> Response<MoviesResp>) :
+    class MoviePagingSource(val func: suspend (String, Int) -> Response<MoviesResp>) :
         PagingSource<Int, MoviesResp.Movie>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MoviesResp.Movie> {
             try {
                 val pageNumber = params.key ?: 1
-                val response = func(BuildConfig.API_KEY, BuildConfig.LANGUAGE, pageNumber)
+                val response = func(BuildConfig.LANGUAGE, pageNumber)
                 if (response.isSuccessful) {
 
                     val resp = response.body() ?: return LoadResult.Error(RuntimeException("null movie list response"))

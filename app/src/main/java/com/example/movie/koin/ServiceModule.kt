@@ -1,5 +1,6 @@
 package com.example.movie.koin
 
+import com.example.movie.BuildConfig
 import com.example.movie.BuildConfig.SERVER_URL
 import com.example.movie.service.MovieService
 import com.facebook.stetho.okhttp3.StethoInterceptor
@@ -20,6 +21,7 @@ fun createOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
     .addInterceptor {
         val url = it.request().url
             .newBuilder()
+            .addQueryParameter("api_key", BuildConfig.API_KEY)
             .build()
 
         val request = it.request().newBuilder().url(url).build()
