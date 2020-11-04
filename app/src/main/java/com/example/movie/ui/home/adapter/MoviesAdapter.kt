@@ -29,9 +29,7 @@ object MovieComparator : DiffUtil.ItemCallback<MoviesAdapter.MovieInfoWrapper>()
 
 }
 
-class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper>) : PagingDataAdapter<MoviesAdapter.MovieInfoWrapper, MoviesAdapter.ViewHolder>(diffCallback) {
-
-    private val movies = mutableListOf<MovieInfoWrapper>()
+class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper> = MovieComparator) : PagingDataAdapter<MoviesAdapter.MovieInfoWrapper, MoviesAdapter.ViewHolder>(diffCallback) {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movieInfoWrapper: MovieInfoWrapper?) {
@@ -88,7 +86,7 @@ class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper>) : Pag
     ) {
         constructor(movie: MoviesResp.Movie) : this(
             movie.id!!,
-            movie.posterPath ?: "",
+            movie.backdropPath ?: "",
             movie.title ?: "",
             "",
             movie.releaseDate ?: "",

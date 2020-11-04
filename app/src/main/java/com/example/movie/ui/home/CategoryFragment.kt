@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.paging.map
 import com.example.movie.R
 import com.example.movie.ui.home.adapter.MovieComparator
@@ -33,7 +35,7 @@ class CategoryFragment: Fragment() {
 
     private val viewModel: CategoryViewModel by viewModel{ parametersOf(arguments?.getSerializable(BUNDLE_CATEGORY) as? MovieCategory
         ?: throw RuntimeException("null argument"))}
-    private val adapter by lazy { MoviesAdapter(MovieComparator) }
+    private val adapter by lazy { MoviesAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,6 +50,7 @@ class CategoryFragment: Fragment() {
         rvMovies.adapter = adapter
 
         lifecycleScope.launch {
+
             viewModel.flow.collectLatest {
                 adapter.submitData(it)
             }

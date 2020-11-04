@@ -2,6 +2,7 @@ package com.example.movie.koin
 
 import com.example.movie.BuildConfig
 import com.example.movie.BuildConfig.SERVER_URL
+import com.example.movie.service.ConfigService
 import com.example.movie.service.MovieService
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
@@ -14,6 +15,7 @@ val serviceModule = module {
     single { createOkHttpClient() }
 
     single<MovieService> { createService(get()) }
+    single<ConfigService> { createService(get()) }
 }
 
 fun createOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
