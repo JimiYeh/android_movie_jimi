@@ -7,7 +7,7 @@
     android:minHeight="@dimen/movie_detail_app_bar_min_height"
     android:fitsSystemWindows="false"
     app:layoutDescription="@xml/scene_movie_detail_header"
-    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
+    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
     android:id="@+id/movie_detail_header">
 
     <ImageView
