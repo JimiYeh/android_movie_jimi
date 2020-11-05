@@ -41,8 +41,6 @@ abstract class MovieCommentModel : EpoxyModelWithHolder<MovieCommentModel.Holder
             .into(holder.photo)
 
         holder.name.text = name
-        holder.date.text = commentDate
-        holder.likes.text = String.format(holder.likes.context.getString(R.string.movie_detail_comment_likes_format), likesCount)
         holder.comment.text = comment
     }
 
@@ -51,15 +49,11 @@ abstract class MovieCommentModel : EpoxyModelWithHolder<MovieCommentModel.Holder
 
         lateinit var photo: ImageView
         lateinit var name: TextView
-        lateinit var date: TextView
-        lateinit var likes: TextView
         lateinit var comment: TextView
 
         override fun bindView(itemView: View) {
             photo = itemView.findViewById(R.id.photo)
             name = itemView.findViewById(R.id.name)
-            date = itemView.findViewById(R.id.date)
-            likes = itemView.findViewById(R.id.likes)
             comment = itemView.findViewById(R.id.comment)
         }
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="1000"
+        motion:motionInterpolator="linear">
+
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/banner"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/movie_detail_app_bar_height"
+            android:alpha="1.0"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@+id/genresContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/movieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="12dp"
+            motion:layout_constraintBottom_toTopOf="@id/genresContainer"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="singleLine"
+                motion:customBoolean="false"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/pubYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            motion:layout_constraintBottom_toBottomOf="@id/movieTitle"
+            motion:layout_constraintStart_toEndOf="@id/movieTitle" />
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@id/genresContainer"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <Constraint
+            android:id="@id/movieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="singleLine"
+                motion:customBoolean="true" />
+
+        </Constraint>
+
+
+
+        <Constraint
+            android:id="@id/pubYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+
+    </ConstraintSet>
+
+</MotionScene>

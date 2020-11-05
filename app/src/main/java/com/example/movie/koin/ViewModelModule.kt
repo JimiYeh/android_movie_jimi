@@ -1,5 +1,6 @@
 package com.example.movie.koin
 
+import com.example.movie.ui.detail.MovieDetailViewModel
 import com.example.movie.ui.home.CategoryViewModel
 import com.example.movie.ui.home.MainViewModel
 import com.example.movie.ui.home.vo.MovieCategory
@@ -11,4 +12,8 @@ val viewModelModule = module {
     viewModel { MainViewModel() }
 
     viewModel { (category: MovieCategory) -> CategoryViewModel(category, get()) }
+
+    viewModel { (movieId: Int) -> MovieDetailViewModel(movieId, get()) }
+
+
 }

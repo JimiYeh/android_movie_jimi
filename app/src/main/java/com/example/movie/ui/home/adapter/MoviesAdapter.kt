@@ -59,7 +59,10 @@ class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper> = Movi
             )
 
             itemView.setOnClickListener {
-                context.startActivity(MovieDetailActivity.newIntent(context))
+                movieInfoWrapper?.id?.let {
+                    context.startActivity(MovieDetailActivity.newIntent(context, it))
+                }
+
             }
         }
     }

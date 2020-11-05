@@ -15,7 +15,7 @@
 <!--    detail page-->
     <string name="movie_detail_director_format">導演： %s</string>
     <string name="movie_detail_actor_format">演員： %s</string>
-    <string name="movie_detail_pub_year_format">上映日期： %s</string>
+    <string name="movie_detail_pub_year_format">(%s)</string>
     <string name="movie_detail_genres_format">類型： %s</string>
     <string name="movie_detail_country_format">製片國家/地區： %s</string>
     <string name="movie_detail_score_format">評分： %s</string>

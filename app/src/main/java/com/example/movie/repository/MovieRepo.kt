@@ -9,7 +9,7 @@ import com.example.movie.ui.home.vo.MovieCategory
 import retrofit2.Response
 import java.lang.RuntimeException
 
-class MovieRepo(val service: MovieService) {
+class MovieRepo(private val service: MovieService) {
 
     var sourceMap = mutableMapOf<String, MoviePagingSource>()
 
@@ -51,6 +51,11 @@ class MovieRepo(val service: MovieService) {
     }
 
 
+    suspend fun getMovieDetail(id: Int) = callApi { service.getMovieDetail(id) }
+
+    suspend fun getMovieReviews(id: Int) = callApi { service.getMovieReviews(id) }
+
+
     class MoviePagingSource(val func: suspend (String, Int) -> Response<MoviesResp>) :
         PagingSource<Int, MoviesResp.Movie>() {
 
@@ -60,7 +65,8 @@ class MovieRepo(val service: MovieService) {
                 val response = func(BuildConfig.LANGUAGE, pageNumber)
                 if (response.isSuccessful) {
 
-                    val resp = response.body() ?: return LoadResult.Error(RuntimeException("null movie list response"))
+                    val resp = response.body()
+                        ?: return LoadResult.Error(RuntimeException("null movie list response"))
 
                     resp.totalPages?.let {
                         return LoadResult.Page(

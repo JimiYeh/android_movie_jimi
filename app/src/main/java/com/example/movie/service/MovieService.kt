@@ -1,9 +1,11 @@
 package com.example.movie.service
 
-import com.example.movie.BuildConfig
+import com.example.movie.model.response.MovieDetailResp
+import com.example.movie.model.response.MovieReviewResp
 import com.example.movie.model.response.MoviesResp
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
@@ -33,4 +35,10 @@ interface MovieService {
     ): Response<MoviesResp>
 
 
+    @GET("/3/movie/{id}")
+    suspend fun getMovieDetail(@Path("id") id: Int): Response<MovieDetailResp>
+
+
+    @GET("/3/movie/{id}/reviews")
+    suspend fun getMovieReviews(@Path("id") id: Int): Response<MovieReviewResp>
 }
