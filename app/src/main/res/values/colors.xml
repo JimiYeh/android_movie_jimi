@@ -10,7 +10,8 @@
     <color name="lighter_gray">#ddd</color>
 
 
-
+    <color name="colorPrimary">#819ca9</color>
+    <color name="colorPrimaryDark">#546e7a</color>
     <color name="tabIndicator">#E91E63</color>
     <color name="movie_detail_comment_user_name">#FF2196F3</color>
     <color name="movie_detail_guide">#80FFFFFF</color>

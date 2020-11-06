@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_list)
 
-        setSupportActionBar(toolbar)
-
         val categoryList = listOf(
             MovieCategory.CategoryNowPlaying,
             MovieCategory.CategoryUpcoming,
@@ -35,5 +33,9 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(movieCategoryTabLayout, movieCategoryViewPager) { tab, position ->
             tab.text = getString(categoryList[position].strResId)
         }.attach()
+
+
     }
+
+
 }

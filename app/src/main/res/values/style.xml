@@ -2,9 +2,13 @@
 <resources>
 
     <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#819ca9</item>
-        <item name="colorPrimaryDark">#546e7a</item>
-        <item name="colorAccent">@color/teal_700</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="@style/Theme.Movie">
+        <item name="android:editTextColor">@color/white</item>
     </style>
 
 </resources>
