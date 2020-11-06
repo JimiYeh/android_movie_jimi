@@ -4,44 +4,124 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <ImageView
-        android:id="@+id/star"
-        android:layout_width="28dp"
-        android:layout_height="28dp" 
+    android:layout_height="100dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/metaScoreContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
+        app:layout_constraintEnd_toStartOf="@id/voteAverageContainer"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_baseline_star_24"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1">
 
-    <View
-        android:id="@+id/centerLine"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="@id/star"
-        app:layout_constraintEnd_toEndOf="@id/star"/>
+        <TextView
+            android:id="@+id/labelMetaScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:text="@string/movie_detail_meta_score"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/metaScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/labelMetaScore"
+            android:layout_marginBottom="8dp"
+            android:text="9.4"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_green_dark"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/voteAverageContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@id/metaScoreContainer"
+        app:layout_constraintEnd_toStartOf="@id/rateContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1">
+
+        <View
+            android:id="@+id/centerLine"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/voteAverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/centerLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            tools:text="8.1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/centerLine"
+            app:layout_constraintBottom_toBottomOf="@id/voteAverage"
+            android:textColor="@color/movie_detail_guide"
+            android:text="/10"/>
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/voteAverage"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_star_24"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rateContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@id/voteAverageContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1">
+
+        <TextView
+            android:id="@+id/rateThis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:text="@string/movie_detail_rate_this"/>
+
+        <CheckBox
+            android:id="@+id/rate"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rateThis"
+            android:layout_marginBottom="8dp"
+            android:button="@null"
+            android:background="@drawable/selector_movie_detail_rate_star" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     
 
-
-    <TextView
-        android:id="@+id/voteAverage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/centerLine"
-        app:layout_constraintTop_toBottomOf="@id/star"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        tools:text="8.1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/centerLine"
-        app:layout_constraintBottom_toBottomOf="@id/voteAverage"
-        android:textColor="@color/movie_detail_guide"
-        android:text="/10"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

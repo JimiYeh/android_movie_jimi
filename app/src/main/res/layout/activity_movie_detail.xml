@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="12dp"
         android:padding="4dp"
         android:src="@drawable/ic_baseline_keyboard_backspace_24" />
