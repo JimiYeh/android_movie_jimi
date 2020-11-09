@@ -43,20 +43,13 @@ class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper> = Movi
 
 
             itemView.movieName.text = movieInfoWrapper?.name ?: ""
-            itemView.movieGenres.text = String.format(
-                context.getString(R.string.movie_adapter_genres_format),
-                movieInfoWrapper?.genres ?: ""
-            )
 
-            itemView.pubDate.text = String.format(
-                context.getString(R.string.movie_adapter_pub_date_format),
-                movieInfoWrapper?.pubDate ?: ""
-            )
+            itemView.pubDate.text = movieInfoWrapper?.pubDate ?: ""
 
-            itemView.movieDuration.text = String.format(
-                context.getString(R.string.movie_adapter_duration_format),
-                bindingAdapterPosition.toString()
-            )
+            itemView.overview.text = movieInfoWrapper?.overview
+
+            itemView.rate.rating = movieInfoWrapper?.score?.toFloat() ?: 0f
+
 
             itemView.setOnClickListener {
                 movieInfoWrapper?.id?.let {
@@ -83,17 +76,17 @@ class MoviesAdapter(diffCallback: DiffUtil.ItemCallback<MovieInfoWrapper> = Movi
         val id: Int,
         val banner: String,
         val name: String,
-        val genres: String,
+        val score: Double?,
         val pubDate: String,
-        val duration: String,
+        val overview: String,
     ) {
         constructor(movie: MoviesResp.Movie) : this(
             movie.id!!,
             movie.backdropPath ?: "",
             movie.title ?: "",
-            "",
+            movie.voteAverage,
             movie.releaseDate ?: "",
-            "",
+            movie.overview ?: "",
         )
     }
 }

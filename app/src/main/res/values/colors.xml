@@ -16,4 +16,7 @@
     <color name="movie_detail_comment_user_name">#FF2196F3</color>
     <color name="movie_detail_guide">#80FFFFFF</color>
     <color name="movie_detail_golden_star">#FFEB3B</color>
+
+
+    <color name="movie_home_page_rate_star">#FF2196F3</color>
 </resources>

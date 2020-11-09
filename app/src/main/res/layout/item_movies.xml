@@ -4,19 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guidelineVertical"
+        app:layout_constraintGuide_begin="60dp"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guidelineHorizontal"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidelineHorizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:padding="4dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp">
 
@@ -24,76 +35,86 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/movieCover"
+            <TextView
+                android:id="@+id/pubDate"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="2.5:3"
-                tools:src="@drawable/ic_launcher_foreground"/>
+                android:layout_marginTop="4dp"
+                android:textSize="14dp"
+                android:singleLine="true"
+                tools:text="上映日期：2019-03-01"/>
 
             <TextView
                 android:id="@+id/movieName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/movieCover"
-                android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="8dp"
-                android:singleLine="true"
-                android:textSize="20sp"
-                tools:text="馴龍高手3" />
-
-            <TextView
-                android:id="@+id/movieGenres"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/movieName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieName"
-                android:layout_marginTop="4dp"
-                android:textSize="12sp"
-                android:singleLine="true"
-                tools:text="動畫/奇幻/冒險"/>
-
-            <TextView
-                android:id="@+id/pubDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/movieName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieGenres"
-                android:layout_marginTop="4dp"
-                android:textSize="12sp"
-                android:singleLine="true"
-                tools:text="上映日期：2019-03-01"/>
-
-            <TextView
-                android:id="@+id/movieDuration"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/movieName"
+                app:layout_constraintStart_toStartOf="@id/pubDate"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pubDate"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="true"
+                android:textSize="20dp"
+                tools:text="馴龍高手3" />
+
+            <RatingBar
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?attr/ratingBarStyleSmall"
+                android:numStars="5"
+                app:layout_constraintStart_toStartOf="@id/pubDate"
+                app:layout_constraintTop_toBottomOf="@id/movieName"
+                android:layout_marginTop="8dp"
+                android:progressTint="@color/movie_home_page_rate_star"
+                android:secondaryProgressTint="@color/lighter_gray"
+                android:isIndicator="true"
+                android:stepSize="0.1"
+                tools:rating="2.2"/>
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/movieName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rate"
+                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="8dp"
-                android:textSize="12sp"
+                android:textSize="12dp"
                 android:singleLine="true"
                 tools:text="片長：104分鐘"/>
-
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:id="@+id/movieCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            tools:src="@drawable/ic_launcher_foreground"/>
 
 
     </androidx.cardview.widget.CardView>
+
+
 
 
 
